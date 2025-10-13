@@ -11,7 +11,7 @@ export interface LoginVo {
  * 权限响应Vo
  * */
 export interface PermissionVo {
-    permissionMenu: PermissionRouterVo[];
+    permissionRouterVo: PermissionRouterVo[];
     permissionCode: string[];
 }
 
@@ -23,4 +23,6 @@ export interface PermissionRouterVo {
     parentId: string;
     url: string;
     title: string;
+    icon?: string;
+    type: string;
 }
