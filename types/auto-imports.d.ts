@@ -35,6 +35,7 @@ declare global {
     const isReadonly: (typeof import('vue'))['isReadonly'];
     const isRef: (typeof import('vue'))['isRef'];
     const isShallow: (typeof import('vue'))['isShallow'];
+    const loadView: (typeof import('../src/stores/modules/permission'))['loadView'];
     const login: (typeof import('../src/services/api/auth'))['login'];
     const logout: (typeof import('../src/services/api/auth'))['logout'];
     const mapActions: (typeof import('pinia'))['mapActions'];
@@ -139,4 +140,7 @@ declare global {
     // @ts-ignore
     export type { NumberEnum } from '../src/enums/numberEnum';
     import('../src/enums/numberEnum');
+    // @ts-ignore
+    export type { MenusRouter } from '../src/stores/modules/permission';
+    import('../src/stores/modules/permission');
 }

@@ -7,26 +7,32 @@ interface AccountInfo {
     remembered: boolean;
 }
 
+const initialAccountState: AccountInfo = {
+    account: '',
+    password: '',
+    remembered: false
+};
+
 export const useAuthStore = defineStore(
     'authStore',
     () => {
         const accessToken = ref('');
         const refreshToken = ref('');
         const expiresAt = ref(dayjs().format('YYYY-MM-DD HH:mm:ss'));
-        const accountInfo = ref<AccountInfo>({
-            account: '',
-            password: '',
-            remembered: false
-        });
+        const accountInfo = ref<AccountInfo>(initialAccountState);
 
         const isLogin = computed(() => dayjs().isBefore(dayjs(expiresAt.value)));
         const getAuthorization = computed(() => (accessToken.value ? { Authorization: `Bearer ${accessToken.value}` } : null));
+
         watch(isLogin, async () => {
             await autoRefresh();
         });
+
         const $reset = () => {
             accessToken.value = '';
             refreshToken.value = '';
+            expiresAt.value = dayjs().format('YYYY-MM-DD HH:mm:ss');
+            accountInfo.value = initialAccountState;
         };
         const loginOut = async () => {
             await logout();
