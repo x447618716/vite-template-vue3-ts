@@ -102,7 +102,7 @@ pnpm run test:e2e
 │   ├─enums # 枚举/常量
 │   │   └─...
 │   │
-│   ├─ http  # request相关目录
+│   ├─http  # request相关目录
 │   │   └─...
 │   │
 │   ├─view # 页面
