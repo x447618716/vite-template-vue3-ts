@@ -5,7 +5,6 @@ import { assign } from 'lodash-es';
 
 import { checkStatus } from '@/http/checkStatus.ts';
 import router from '@/router';
-import type { BaseResponse } from '@/services/vo/common.ts';
 import { Toast } from '@/utils';
 
 /**
