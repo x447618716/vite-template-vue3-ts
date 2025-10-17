@@ -1,7 +1,4 @@
 import request from '@/http';
-import type { LoginDto, RefreshDto } from '@/services/dto/auth';
-import type { LoginVo, PermissionVo } from '@/services/vo/auth';
-import type { BaseResponse } from '@/services/vo/common.ts';
 
 /**
  * 刷新token
