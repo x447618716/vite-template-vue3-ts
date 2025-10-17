@@ -61,13 +61,13 @@ const alovaInstance = createAlova({
                     method.config.headers = assign(method.config.headers, authStore.getAuthorization);
                     await method.send();
                 } else {
-                    await router.replace('/pages/login/index');
+                    await router.replace('/login');
                 }
                 return;
             }
             if (code === ResultEnum.REFRESH_TOKEN_EXPIRED) {
                 authStore.$reset();
-                await router.replace('/pages/login/index');
+                await router.replace('/login');
                 return;
             }
             if (code !== ResultEnum.SUCCESS) {
