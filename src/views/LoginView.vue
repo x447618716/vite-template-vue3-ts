@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus';
 
-type RuleForm = Parameters<typeof login>[0];
-
 const authStore = useAuthStore();
 const router = useRouter();
 const { accountInfo, accessToken, refreshToken, expiresAt } = storeToRefs(authStore);
 
 const formRef = ref<FormInstance>();
 
-const form = reactive<RuleForm>({
+const form = reactive<LoginDto>({
     account: '',
     password: ''
 });
 
-const formRules = reactive<FormRules<RuleForm>>({
+const formRules = reactive<FormRules<LoginDto>>({
     account: [
         {
             required: true,
